@@ -7,6 +7,7 @@ from glob import glob
 
 
 s =requests.Session()
+# 这部分是借助API，通过番号查找相应的标题
 def getTitle(videocode):
     resp = s.get(f'https://api.avgle.com/v1/jav/{videocode}/0?limit=2')
     soup = BeautifulSoup(resp.text,'html.parser')
@@ -14,7 +15,7 @@ def getTitle(videocode):
     return data['response']['videos'][0]['title']
 # videopath = 'G:\Video/*/'
 videopath = sys.argv[1] + '/*/'
-
+# 这部分是把文件番号名重新命名为标题
 def renamefileinfolder(folderpath):
     filelist = os.listdir(path=folderpath)
     # print(filelist)
@@ -30,7 +31,7 @@ def renamefileinfolder(folderpath):
 
 
 res = glob(videopath, recursive = True)
-
+# 这部分是递归读取文件夹和下面的字文件夹的功能
 for folder in res:
     res = res + glob(folder+'/*/', recursive = True)
 res.append(sys.argv[1])
