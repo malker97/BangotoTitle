@@ -34,6 +34,6 @@ res = glob(videopath, recursive = True)
 for folder in res:
     res = res + glob(folder+'/*/', recursive = True)
 res.append(sys.argv[1])
-print(res)
+# print(res)
 for folderpath in res:
     renamefileinfolder(folderpath)
