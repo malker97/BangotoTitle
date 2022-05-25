@@ -12,7 +12,7 @@
 
 ## 怎么使用
 
-### MacOS:
+### MacOS or Linux:
 
 ```bash
 $ python3 src/bangoToText.py /your/folder/path/
